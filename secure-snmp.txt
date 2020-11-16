@@ -1,0 +1,12 @@
+ip access-list standard SNMP
+ permit 10.5.1.10
+ permit 172.20.2.200
+ permit 172.20.2.201
+ permit 172.16.47.87
+ permit 172.16.47.89
+ permit 172.16.47.88
+ permit 172.16.47.67
+ 
+ snmp-server group ANS v3 auth access SNMP
+snmp-server group ANS v3 priv read SWUSER access SNMP
+snmp-server view SWUSER dod included
