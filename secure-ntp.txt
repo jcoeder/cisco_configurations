@@ -1,0 +1,10 @@
+access-list 1 remark UTILITY_ACL_BLOCK_EVERYTHING
+access-list 1 deny   any
+access-list 10 remark NTP_SERVERS
+access-list 10 permit 172.16.40.123
+access-list 10 deny   any
+
+ntp access-group query-only 1
+ntp access-group peer 10
+ntp access-group serve 1
+ntp access-group serve-only 1
