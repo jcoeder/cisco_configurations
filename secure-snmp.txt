@@ -1,12 +1,6 @@
 ip access-list standard SNMP
  permit 10.5.1.10
- permit 172.20.2.200
- permit 172.20.2.201
- permit 172.16.47.87
- permit 172.16.47.89
- permit 172.16.47.88
- permit 172.16.47.67
- 
- snmp-server group ANS v3 auth access SNMP
-snmp-server group ANS v3 priv read SWUSER access SNMP
-snmp-server view SWUSER dod included
+
+snmp-server group PRTG_GROUP v3 priv access SNMP
+snmp-server user PRTG_USER PRTG_GROUP v3 auth sha PASSWORD1 priv aes 128 PASSWORD2
+snmp-server host 10.6.11.53 version 3 auth PRTG_USER 
